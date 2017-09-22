@@ -1,0 +1,41 @@
+
+{{'title = ' + title}}
+
+<br /><br />
+<div style="width:350px;"><hr /></div> 
+{{"\{\{\}\} or []"}} - One way binding, from component to view/DOM<br />
+
+<br />
+String interpolation - {{"\{\{var\}\}"}}:
+
+<div>{{varA}}</div>
+
+<br />
+Property binding - [prop] = "var": 
+<div [textContent] = "varA"></div>
+
+<div style="width:350px;"><hr /></div>
+
+() - One way binding, from view to component, ex:event <br />
+<button #elRef (click) = "clickHandler($event,elRef)">click</button>
+
+<div style="width:350px;"><hr /></div>
+
+{{"\[\(ngModel\)\] = var"}}- Two way binding<br /><br />
+
+Require: import FormsModule from '@angular/forms';
+<br /><br />
+<input [(ngModel)] = "textValue" type="text" /> {{textValue}}
+
+<div style="width:350px;"><hr /></div>
+
+
+
+
+
+<!-- <td [attr.colspan] = "colspan">td<td> -->
+
+<div [class.active] = "isActive">class binding</div>
+<div [style.color] = "isActive ? 'blue':'black'">style binding</div>
+
+
