@@ -1,0 +1,18 @@
+$headerFontFamily: Times;
+
+
+nav ul{
+   list-style-type:none;
+   padding:0px;
+    li{
+        width:100px;
+        cursor:pointer;
+        font-family:$headerFontFamily;
+        font-size:1.1rem;
+        outline:none;
+    }
+    li:hover{
+        text-decoration:underline;
+    }
+}
+
