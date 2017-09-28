@@ -1,3 +1,15 @@
-<p>
-  home works!
-</p>
+
+
+Pipe ex:<br /><br />
+
+{{substrVar +' = '+ ( substrVar | summary:2:2 ) }}
+
+<br /><hr /><br />
+InputEx:<br /><br />
+
+[home]<br />
+<input [(ngModel)] = "inputText" /> 
+<div (click) = "updateInputText()">click updateInputText</div>
+<br />
+
+<input-ex [input-data]="inputText"></input-ex>

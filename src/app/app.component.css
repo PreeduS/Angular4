@@ -4,3 +4,9 @@ header{
     border:1px solid red;
     width:200px;
 }
+
+#router-wrapper{
+    display:inline-block;
+    vertical-align:top;
+    border:2px solid blue;
+}

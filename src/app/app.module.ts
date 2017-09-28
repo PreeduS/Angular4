@@ -14,6 +14,8 @@ import { ForLoopComponent } from './for-loop/for-loop.component';
 import { ServiceComponent } from './pages/service/service.component';
 
 import { UsersService } from './services/users.service';
+import { SummaryPipe } from './pipes/summary.pipe';
+import { InputExComponent } from './pages/input-ex/input-ex.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { UsersService } from './services/users.service';
     HomeComponent,
     BasicsComponent,
     ForLoopComponent,
-    ServiceComponent
+    ServiceComponent,
+    SummaryPipe,
+    InputExComponent
   ],
   imports: [
     BrowserModule,
