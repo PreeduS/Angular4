@@ -8,7 +8,7 @@ import { BlueColorDirective } from './directives/blue-color.directive';
 
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
+import { InputOutputComponent } from './pages/inputOutput/inputOutput.component';
 import {  BasicsComponent  } from './pages/basics/basics.component';
 import { ForLoopComponent } from './for-loop/for-loop.component';
 import { ServiceComponent } from './pages/service/service.component';
@@ -16,6 +16,8 @@ import { ServiceComponent } from './pages/service/service.component';
 import { UsersService } from './services/users.service';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { InputExComponent } from './pages/input-ex/input-ex.component';
+import { OutputExComponent } from './pages/output-ex/output-ex.component';
+import { OthersComponent } from './pages/others/others.component';
 
 
 @NgModule({
@@ -23,18 +25,21 @@ import { InputExComponent } from './pages/input-ex/input-ex.component';
     AppComponent,
     HeaderComponent,
     BlueColorDirective,
-    HomeComponent,
+    InputOutputComponent,
     BasicsComponent,
     ForLoopComponent,
     ServiceComponent,
     SummaryPipe,
-    InputExComponent
+    InputExComponent,
+    OutputExComponent,
+    OthersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-        {path:'',component:HomeComponent},
+        {path:'',component:InputOutputComponent},
+        {path:'others',component:OthersComponent},
         {path:'basics',component:BasicsComponent},
         {path:'for-loop',component:ForLoopComponent},
         {path:'service',component:ServiceComponent}

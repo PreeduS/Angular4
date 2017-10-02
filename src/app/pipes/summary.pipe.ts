@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SummaryPipe implements PipeTransform {
 
 //{{substrVar +' = '+ ( substrVar | summary:2:2 ) }}
-//called from home
+//called from others
 
  // transform(value: any, arg1?: any, arg2?: any): any {
   transform(value: string, ...args: number[]): string {

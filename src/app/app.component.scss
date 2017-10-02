@@ -1,0 +1,20 @@
+$menuLeftWidth: 200px; 
+
+/* nth($var,1); */
+
+header{
+    position:absolute;
+    left:0px;
+    top:0px;  
+    vertical-align:top;
+    border:1px solid red;
+    width:$menuLeftWidth;
+    height:100%;
+}
+
+#router-wrapper{ 
+    vertical-align:top;
+    border:2px solid blue;
+    margin-left: $menuLeftWidth;
+    height:100%;
+}

@@ -1,0 +1,107 @@
+warning: LF will be replaced by CRLF in src/app/app.module.ts.
+The file will have its original line endings in your working directory.
+[1mdiff --git a/src/app/app.component.css b/src/app/app.component.css[m
+[1mdeleted file mode 100644[m
+[1mindex efb7fb2..0000000[m
+[1m--- a/src/app/app.component.css[m
+[1m+++ /dev/null[m
+[36m@@ -1,12 +0,0 @@[m
+[31m-header{[m
+[31m-    display:inline-block;[m
+[31m-    vertical-align:top;[m
+[31m-    border:1px solid red;[m
+[31m-    width:200px;[m
+[31m-}[m
+[31m-[m
+[31m-#router-wrapper{[m
+[31m-    display:inline-block;[m
+[31m-    vertical-align:top;[m
+[31m-    border:2px solid blue;[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/app.component.ts b/src/app/app.component.ts[m
+[1mindex 7b0f672..7d943bc 100644[m
+[1m--- a/src/app/app.component.ts[m
+[1m+++ b/src/app/app.component.ts[m
+[36m@@ -3,7 +3,7 @@[m [mimport { Component } from '@angular/core';[m
+ @Component({[m
+   selector: 'app-root',[m
+   templateUrl: './app.component.html',[m
+[31m-  styleUrls: ['./app.component.css'][m
+[32m+[m[32m  styleUrls: ['./app.component.scss'][m
+ })[m
+ export class AppComponent {[m
+   title = 'app';[m
+[1mdiff --git a/src/app/app.module.ts b/src/app/app.module.ts[m
+[1mindex 3fe129a..6d13c89 100644[m
+[1m--- a/src/app/app.module.ts[m
+[1m+++ b/src/app/app.module.ts[m
+[36m@@ -16,6 +16,7 @@[m [mimport { ServiceComponent } from './pages/service/service.component';[m
+ import { UsersService } from './services/users.service';[m
+ import { SummaryPipe } from './pipes/summary.pipe';[m
+ import { InputExComponent } from './pages/input-ex/input-ex.component';[m
+[32m+[m[32mimport { OutputExComponent } from './pages/output-ex/output-ex.component';[m
+ [m
+ [m
+ @NgModule({[m
+[36m@@ -28,7 +29,8 @@[m [mimport { InputExComponent } from './pages/input-ex/input-ex.component';[m
+     ForLoopComponent,[m
+     ServiceComponent,[m
+     SummaryPipe,[m
+[31m-    InputExComponent[m
+[32m+[m[32m    InputExComponent,[m
+[32m+[m[32m    OutputExComponent[m
+   ],[m
+   imports: [[m
+     BrowserModule,[m
+[1mdiff --git a/src/app/pages/home/home.component.html b/src/app/pages/home/home.component.html[m
+[1mindex 1dd1557..11e5c92 100644[m
+[1m--- a/src/app/pages/home/home.component.html[m
+[1m+++ b/src/app/pages/home/home.component.html[m
+[36m@@ -13,3 +13,12 @@[m [mInputEx:<br /><br />[m
+ <br />[m
+ [m
+ <input-ex [input-data]="inputText"></input-ex>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<br /><hr /><br />[m
+[32m+[m
+[32m+[m[32mOutputEx:[m
+[32m+[m[32m<output-ex (custom-change) = "changeHandlerReceiver($event)"></output-ex>[m
+[32m+[m
+[32m+[m[32m<div ></div>[m
+[41m+    [m
+[1mdiff --git a/src/app/pages/home/home.component.ts b/src/app/pages/home/home.component.ts[m
+[1mindex d872f5f..d8502a7 100644[m
+[1m--- a/src/app/pages/home/home.component.ts[m
+[1m+++ b/src/app/pages/home/home.component.ts[m
+[36m@@ -14,6 +14,12 @@[m [mexport class HomeComponent implements OnInit {[m
+     this.inputText = Math.random() + ' updated';[m
+   }[m
+ [m
+[32m+[m[32m  //for outputEx[m
+[32m+[m[32m  changeHandlerReceiver(e){[m
+[32m+[m[32m    console.log('received ev = ', e)[m
+[32m+[m
+[32m+[m[32m  }[m
+[32m+[m
+ [m
+   constructor() { }[m
+ [m
+[1mdiff --git a/src/styles.scss b/src/styles.scss[m
+[1mindex 3f85638..ed044f2 100644[m
+[1m--- a/src/styles.scss[m
+[1m+++ b/src/styles.scss[m
+[36m@@ -2,3 +2,12 @@[m
+ [m
+ body{margin:0px;padding:0px;}[m
+ [m
+[32m+[m[32m@mixin box-sizing() {[m
+[32m+[m[32m    -webkit-box-sizing: border-box;[m
+[32m+[m[32m    -moz-box-sizing: border-box;[m
+[32m+[m[32m    box-sizing: border-box;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m*{[m
+[32m+[m[32m    @include box-sizing();[m
+[32m+[m[32m}[m

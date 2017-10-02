@@ -1,10 +1,5 @@
 
 
-Pipe ex:<br /><br />
-
-{{substrVar +' = '+ ( substrVar | summary:2:2 ) }}
-
-<br /><hr /><br />
 InputEx:<br /><br />
 
 [home]<br />
@@ -13,3 +8,10 @@ InputEx:<br /><br />
 <br />
 
 <input-ex [input-data]="inputText"></input-ex>
+
+
+<br /><hr /><br />
+
+OutputEx:
+<output-ex (custom-change) = "changeHandlerReceiver($event)"></output-ex>
+
