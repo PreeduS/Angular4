@@ -15,9 +15,10 @@ import { ServiceComponent } from './pages/service/service.component';
 
 import { UsersService } from './services/users.service';
 import { SummaryPipe } from './pipes/summary.pipe';
-import { InputExComponent } from './pages/input-ex/input-ex.component';
-import { OutputExComponent } from './pages/output-ex/output-ex.component';
+import { InputExComponent } from './components/input-ex/input-ex.component';
+import { OutputExComponent } from './components/output-ex/output-ex.component';
 import { OthersComponent } from './pages/others/others.component';
+import { PanelNgContentComponent } from './components/panel-ng-content/panel-ng-content.component';
 
 
 @NgModule({
@@ -32,15 +33,17 @@ import { OthersComponent } from './pages/others/others.component';
     SummaryPipe,
     InputExComponent,
     OutputExComponent,
-    OthersComponent
+    OthersComponent,
+    PanelNgContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-        {path:'',component:InputOutputComponent},
+        {path:'',component:BasicsComponent},
         {path:'others',component:OthersComponent},
-        {path:'basics',component:BasicsComponent},
+        {path:'InputOutput',component:InputOutputComponent},
+        //{path:'basics',component:BasicsComponent},
         {path:'for-loop',component:ForLoopComponent},
         {path:'service',component:ServiceComponent}
          //{path:'**',notFound}   // ** - all

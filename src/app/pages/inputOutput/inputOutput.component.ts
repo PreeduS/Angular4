@@ -16,7 +16,7 @@ export class InputOutputComponent implements OnInit {
 
   //for outputEx
   changeHandlerReceiver(e){
-    console.log('received ev = ', e)
+    console.log('[on inputOutput],received from outputEx ev = ', e)
 
   }
 

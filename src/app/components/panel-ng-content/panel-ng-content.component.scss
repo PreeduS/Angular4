@@ -1,0 +1,13 @@
+
+
+.panel-container{
+    border:1px solid gray;
+    width:500px;
+    padding:5px;
+    .panel-header,.panel-content,.panel-footer{
+          border:1px solid gray;
+          margin-top:5px;
+          margin-bottom:5px;
+    }
+
+}
