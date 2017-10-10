@@ -1,0 +1,26 @@
+
+
+<form #form = "ngForm" (ngSubmit) = "submitHandler(form)">
+  <div>Main:</div>
+  <input name = "inputA" ngModel required minlength="3"/>
+  <div>Data:</div>
+  <textarea name = "inputB" ngModel></textarea>
+  <div ngModelGroup = "groupA" #g1 = "ngModelGroup">
+      {{g1.value?.inputC}} <br />
+      inputC: <input name = "inputC" ngModel/><br />
+      inputD: <input name = "inputD" ngModel/><br />
+      cbA: <input type = "checkbox" name = "cbA" ngModel/><br />
+      <select ngModel name = "selectE">
+        <option value = ""></option>
+        <option *ngFor = "let elem of selectList" [value]="elem.id">{{elem.name}}</option>
+      </select>
+  </div>
+  <br />
+  Radio A:<input type="radio" name = "radioF" value = "1" ngModel /><br />
+  Radio B:<input type="radio" name = "radioF" value = "2" ngModel />
+
+  <br /><br />
+  {{form.value | json}}
+  <br />
+  <button [disabled]="!form.valid ">Send</button>  
+</form>

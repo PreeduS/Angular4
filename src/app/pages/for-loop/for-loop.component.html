@@ -1,0 +1,9 @@
+
+<div>let l of list</div>
+<button (click) = "add()">add </button>
+<ul>
+    <li *ngFor = "let l of list; index as i">
+        {{i}} - {{l}}   <b (click) = "remove(i)">x</b>       
+    </li> 
+</ul>
+

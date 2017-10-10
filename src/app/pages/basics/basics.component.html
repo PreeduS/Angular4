@@ -31,11 +31,41 @@ Require: import FormsModule from '@angular/forms';
 
 
 
-
+<!-- ____________________________________________________________________ -->
 
 <!-- <td [attr.colspan] = "colspan">td<td> -->
 
-<div [class.active] = "isActive">class binding</div>
+<div [class.someClass] = "isActive">class binding</div>
 <div [style.color] = "isActive ? 'blue':'black'">style binding</div>
 
+<div [ngClass]="{
+    'active': true,
+    'someClass': true
+}">class binding 2</div>
 
+<div [ngStyle]="{
+    'color': !isActive ? 'blue':'red',
+    'textDecoration': 'underline'
+}">style binding 2</div>
+
+<!-- ____________________________________________________________________ -->
+<!-- ngIf,hidden, ng-template, switch  -->
+<br /><hr /><br />
+
+<div *ngIf = "1==1"> ngIf content</div>
+<div *ngIf = "1==0"> ngIf content2: onFalse - not added to the DOM</div>
+
+<div [hidden] = "false">hidden content</div>
+<div [hidden] = "true">hidden content2: onHidden - added to the DOM</div>
+
+<div *ngIf = "false;else testTemplate">test</div>
+<ng-template #testTemplate>testTemplate, hidden by default</ng-template>
+
+<!-- ngswitch -->
+<br />inputRef: <input #inputRef (keyup) = "true" />
+<div [ngSwitch] = "inputRef.value">
+    <div *ngSwitchCase = "'a'">aaa</div>
+    <div *ngSwitchCase = "'b'">bbb</div>
+    <ng-template [ngSwitchCase] = "'c'">ccc</ng-template>
+    <div *ngSwitchDefault>ngSwitchDefault</div> 
+</div>

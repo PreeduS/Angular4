@@ -2,7 +2,9 @@
 Pipe ex:<br /><br />
 
 {{substrVar +' = '+ ( substrVar | summary:2:2 ) }}
-
+<br />
+Safe Traversal Operator: <br />
+someNullVar = {{obj.something?.someNullVar}}
 
 <br /><br /><hr />
 ngContent ex:<br /><br />
@@ -10,6 +12,14 @@ ngContent ex:<br /><br />
 <panel-ng-content>
 <div class = "panel-header-data">panel-header-data</div>
 <div class = "panel-content-data">panel-content-data</div>
-<ng-container class = "panel-footer-data">panel-footer-data, <u>only text/content inside</u></ng-container>
+<ng-container class = "panel-footer-data">
+    panel-footer-data, <u>ng-container</u> - wrapper not displayed, only text/content inside
+</ng-container>
 
 </panel-ng-content>
+
+<br />
+customInput: <br />
+<input type="text" customInput [mode]="uppercase"  />
+
+<div blueColor>blueColor</div>

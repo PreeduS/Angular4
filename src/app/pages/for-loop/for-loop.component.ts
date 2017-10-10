@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class ForLoopComponent implements OnInit {
   
   list : string[] = ["list el A",'list el B','list el c'];
-
+ 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  add(){
+    this.list.push('new Item');
+  }
+  remove(index){ 
+    this.list.splice(index,1);
   }
 
 }
