@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +21,7 @@ import { OthersComponent } from './pages/others/others.component';
 import { PanelNgContentComponent } from './components/panel-ng-content/panel-ng-content.component';
 import { CustomInputDirective } from './directives/customInput/custom-input.directive';
 import { SomeFormComponent } from './pages/some-form/some-form.component';
+import { PrFormComponent } from './pages/pr-form/pr-form.component';
 
 
 @NgModule({
@@ -38,11 +39,13 @@ import { SomeFormComponent } from './pages/some-form/some-form.component';
     OthersComponent,
     PanelNgContentComponent,
     CustomInputDirective,
-    SomeFormComponent
+    SomeFormComponent,
+    PrFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
         {path:'',component:BasicsComponent},
         {path:'others',component:OthersComponent},
@@ -50,7 +53,8 @@ import { SomeFormComponent } from './pages/some-form/some-form.component';
         //{path:'basics',component:BasicsComponent},
         {path:'forLoop',component:ForLoopComponent},
         {path:'service',component:ServiceComponent},
-        {path:'someForm',component:SomeFormComponent}
+        {path:'someForm',component:SomeFormComponent},
+        {path:'prForm',component:PrFormComponent}
          //{path:'**',notFound}   // ** - all
     ])
   ],

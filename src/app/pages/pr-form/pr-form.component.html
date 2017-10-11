@@ -1,0 +1,22 @@
+
+
+<form [formGroup]="form" (ngSubmit) = "submitHandler()" >
+    inputA: <input formControlName = "inputA" /><br />
+    inputB: <input formControlName = "inputB" /><br />
+
+    <button>Send</button>
+</form>
+
+<br /><br />
+
+form.value: {{form.value | json}} <br />
+form.errors: {{form.errors | json}} <br />
+form.controls.inputA.errors: {{form.controls.inputA.errors| json}} <br /><br />
+
+form.get('inputA').value: {{form.get('inputA').value }} <br />
+form.get('inputA').errors: {{form.get('inputA').errors | json }} <br />
+
+inputA errors.minlength.requiredLength: {{form.get('inputA').errors?.minlength?.requiredLength }} <br />
+
+    <!--cb1: <input type = "checkbox" formControlName = "group.cb1" /><br />
+    cb2: <input type = "checkbox" formControlName = "group.cb2" /><br />-->
