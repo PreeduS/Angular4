@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'pr-form',
@@ -18,18 +18,21 @@ export class PrFormComponent implements OnInit {
   
 
   form = new FormGroup({
-    inputA : new FormControl('', [Validators.required, Validators.minLength(3),this.noWhiteSpace ]),
-    inputB : new FormControl('', Validators.required)
-   /* group: new FormGroup({
-      cb1 : new FormControl('', Validators.required),
-      cb2 : new FormControl('', Validators.required),     
+    inputA : new FormControl('', 
+           [Validators.required, Validators.minLength(3),this.noWhiteSpace ]
+            ),
+    inputB : new FormControl('', Validators.required),
+   
+    userSys: new FormGroup({
+      username : new FormControl('', Validators.required, this.doUserExists),
+      password : new FormControl('', Validators.required),     
     })
-    */
-    //eqweqwe: new FormGroup( form controlls ...)
+    
+    
   });
 
   //custom validator 
-  noWhiteSpace(control: FormControl ){
+  noWhiteSpace(control: FormControl ): ValidationErrors | null{
 
     if(control.value.indexOf(' ') !== -1){
       return{containsWhiteSpace:true}
@@ -37,8 +40,31 @@ export class PrFormComponent implements OnInit {
   return null;
     
   }
-  submitHandler(){
-    console.log(this.form)
+
+  //custom async validation
+  //AsyncValidatorFn - used in FormGroup,3rd param - return promise
+  doUserExists(control:AbstractControl): Promise<ValidationErrors | null>{
+      
+    return new Promise((resolve, reject) => {
+
+      setTimeout(()=>{
+        if(control.value.toLowerCase() === 'user1'){
+          resolve( {userExists:true} );
+        }else{
+          resolve( null );
+        }
+       
+      },1500);
+
+    })
+
+  }
+
+
+  login():any{
+    //loginStatus = someLoginService.login(); ...
+
+    this.form.setErrors({'loginFailed':true})
   }
 
 

@@ -1,8 +1,13 @@
 
 
-<form [formGroup]="form" (ngSubmit) = "submitHandler()" >
+<form [formGroup]="form" (ngSubmit) = "login()" >
     inputA: <input formControlName = "inputA" /><br />
     inputB: <input formControlName = "inputB" /><br />
+
+    <div formGroupName = "userSys">
+    username: <input formControlName = "username" /><br />
+    password: <input formControlName = "password" /><br />
+    </div>
 
     <button>Send</button>
 </form>
@@ -11,6 +16,7 @@
 
 form.value: {{form.value | json}} <br />
 form.errors: {{form.errors | json}} <br />
+form.valid: {{form.valid | json}} <br />
 form.controls.inputA.errors: {{form.controls.inputA.errors| json}} <br /><br />
 
 form.get('inputA').value: {{form.get('inputA').value }} <br />
@@ -18,5 +24,12 @@ form.get('inputA').errors: {{form.get('inputA').errors | json }} <br />
 
 inputA errors.minlength.requiredLength: {{form.get('inputA').errors?.minlength?.requiredLength }} <br />
 
+<br />
+Async validation, form.get('userSys.username').errors?.userExists: {{form.get('userSys.username').errors?.userExists  }}<br />
+Pending,userSys.username waiting for response: {{form.get('userSys.username').pending}}
+
+
     <!--cb1: <input type = "checkbox" formControlName = "group.cb1" /><br />
     cb2: <input type = "checkbox" formControlName = "group.cb2" /><br />-->
+<br /><br />setErrors<br />
+form.errors?.loginFailed: {{form.errors?.loginFailed}} <br />
