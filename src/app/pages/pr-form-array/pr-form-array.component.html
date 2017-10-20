@@ -1,0 +1,18 @@
+
+
+<form [formGroup]="form">
+  Add el:<input (keyup.enter)="addElement(elRef)" #elRef />
+  <br /><br />
+
+  <div formArrayName="fArray">
+
+
+      <div *ngFor="let el of form.get('fArray').controls;index as i">
+          {{el.value}}, {{i}}
+          <input formControlName = "{{i}}" /><br />
+      </div>
+  </div>
+
+</form>
+
+{{   this.form.get('fArray').valid  }}
