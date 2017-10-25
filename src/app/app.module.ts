@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from "@angular/http";
 
@@ -15,7 +15,10 @@ import { ForLoopComponent } from './pages/for-loop/for-loop.component';
 import { ServiceComponent } from './pages/service/service.component';
 
 import { UsersService } from './services/users.service';
+import { HttpExService } from './services/http-ex/http-ex.service';
+
 import { SummaryPipe } from './pipes/summary.pipe';
+
 import { InputExComponent } from './components/input-ex/input-ex.component';
 import { OutputExComponent } from './components/output-ex/output-ex.component';
 import { OthersComponent } from './pages/others/others.component';
@@ -25,6 +28,8 @@ import { SomeFormComponent } from './pages/some-form/some-form.component';
 import { PrFormComponent } from './pages/pr-form/pr-form.component';
 import { PrFormArrayComponent } from './pages/pr-form-array/pr-form-array.component';
 import { HttpExComponent } from './pages/http-ex/http-ex.component';
+import { GlobalErrorHandler } from './commons/global-error-handler';
+
 
 
 @NgModule({
@@ -64,9 +69,17 @@ import { HttpExComponent } from './pages/http-ex/http-ex.component';
         {path:'prFormArray',component:PrFormArrayComponent},
         {path:'httpEx',component:HttpExComponent}
          //{path:'**',notFound}   // ** - all
+        // "somePath/:someVar"
     ])
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    HttpExService,
+    {
+      provide : ErrorHandler,
+      useClass : GlobalErrorHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
